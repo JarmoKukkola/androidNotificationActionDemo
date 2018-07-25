@@ -8,7 +8,6 @@ import androidx.core.app.NotificationManagerCompat
 
 class NotificationBroadcastReceiver:BroadcastReceiver() {
   companion object {
-    const val tag = "tag"
     const val timeTag = "timeTag"
   }
 

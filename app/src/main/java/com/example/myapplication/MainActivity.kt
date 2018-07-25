@@ -27,8 +27,6 @@ class MainActivity:AppCompatActivity() {
 
   private fun getSnoozePendingIntent(time:Long):PendingIntent {
     val snoozeIntent = Intent(this,NotificationBroadcastReceiver::class.java)
-
-    snoozeIntent.action = NotificationBroadcastReceiver.tag
     Log.d("TimeMillis before",time.toString())
     snoozeIntent.putExtra(NotificationBroadcastReceiver.timeTag,time)
     return PendingIntent.getBroadcast(this,0,snoozeIntent,0)
