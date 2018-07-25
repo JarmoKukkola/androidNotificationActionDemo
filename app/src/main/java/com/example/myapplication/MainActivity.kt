@@ -21,11 +21,8 @@ class MainActivity:AppCompatActivity() {
     val mBuilder = NotificationCompat
         .Builder(this,this.localClassName)
         .setSmallIcon(android.R.drawable.btn_default)
-        .setContentTitle("note")
-        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         .addAction(android.R.drawable.arrow_down_float,"test",getSnoozePendingIntent(time))
-    val notificationManager = NotificationManagerCompat.from(this)
-    notificationManager.notify(time.toInt(),mBuilder.build())
+    NotificationManagerCompat.from(this).notify(time.toInt(),mBuilder.build())
   }
 
   private fun getSnoozePendingIntent(time:Long):PendingIntent {
