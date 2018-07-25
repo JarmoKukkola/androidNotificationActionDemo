@@ -14,7 +14,6 @@ class NotificationBroadcastReceiver:BroadcastReceiver() {
   override fun onReceive(context:Context,intent:Intent) {
     val time = intent.getLongExtra(timeTag,0)
     Log.d("TimeMillis after",time.toString())
-    val notificationManager = NotificationManagerCompat.from(context)
-    notificationManager.cancel(time.toInt())
+    NotificationManagerCompat.from(context).cancel(time.toInt())
   }
 }
