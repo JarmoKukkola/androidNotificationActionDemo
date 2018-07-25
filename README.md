@@ -8,3 +8,5 @@ If you make several notifications by clicking the button and then press the acti
 It seems that the value of the read long variable, is always the original long variable that was created on first click of the button.
 
 This happens even after clearing the notifications and killing the app from task manager.
+
+Related to Stack Overflow question: https://stackoverflow.com/questions/51518084/updating-extra-data-on-notification-intents-on-android
