@@ -18,19 +18,18 @@ class MainActivity:AppCompatActivity() {
   }
 
   fun notify(v:View) {
-    Log.d(this.localClassName,"Notify")
+    val time=System.currentTimeMillis()
     val mBuilder = NotificationCompat.Builder(this,this.localClassName).setSmallIcon(android.R.drawable.btn_default).setContentTitle("note")
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-    mBuilder.setDefaults(Notification.DEFAULT_ALL).addAction(android.R.drawable.arrow_down_float,"test",getSnoozePendingIntent())
+    mBuilder.setDefaults(Notification.DEFAULT_ALL).addAction(android.R.drawable.arrow_down_float,"test",getSnoozePendingIntent(time))
     val notificationManager = NotificationManagerCompat.from(this)
-    notificationManager.notify(NotificationBroadcastReceiver.id,mBuilder.build())
+    notificationManager.notify(time.toInt(),mBuilder.build())
   }
 
-  private fun getSnoozePendingIntent():PendingIntent {
+  private fun getSnoozePendingIntent(time:Long):PendingIntent {
     val snoozeIntent = Intent(this,NotificationBroadcastReceiver::class.java)
 
     snoozeIntent.action = NotificationBroadcastReceiver.tag
-    val time = System.currentTimeMillis()
     Log.d("TimeMillis before",time.toString())
     snoozeIntent.putExtra(NotificationBroadcastReceiver.timeTag,time)
     return PendingIntent.getBroadcast(this,0,snoozeIntent,0)

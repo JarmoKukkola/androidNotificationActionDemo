@@ -10,13 +10,12 @@ class NotificationBroadcastReceiver:BroadcastReceiver() {
   companion object {
     const val tag = "tag"
     const val timeTag = "timeTag"
-    const val id = 10023021
   }
 
   override fun onReceive(context:Context,intent:Intent) {
     val time = intent.getLongExtra(timeTag,0)
     Log.d("TimeMillis after",time.toString())
     val notificationManager = NotificationManagerCompat.from(context)
-    notificationManager.cancel(NotificationBroadcastReceiver.id)
+    notificationManager.cancel(time.toInt())
   }
 }
