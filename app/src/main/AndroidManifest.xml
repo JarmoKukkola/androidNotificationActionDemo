@@ -16,11 +16,7 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <receiver android:name=".NotificationBroadcastReceiver">
-    <intent-filter>
-        <action android:name="tag"/>
-    </intent-filter>
-</receiver>
+    <receiver android:name=".NotificationBroadcastReceiver"/>
   </application>
 
 </manifest>
