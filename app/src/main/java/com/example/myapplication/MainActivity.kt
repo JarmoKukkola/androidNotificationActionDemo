@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.app.Notification
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
@@ -18,10 +17,13 @@ class MainActivity:AppCompatActivity() {
   }
 
   fun notify(v:View) {
-    val time=System.currentTimeMillis()
-    val mBuilder = NotificationCompat.Builder(this,this.localClassName).setSmallIcon(android.R.drawable.btn_default).setContentTitle("note")
+    val time = System.currentTimeMillis()
+    val mBuilder = NotificationCompat
+        .Builder(this,this.localClassName)
+        .setSmallIcon(android.R.drawable.btn_default)
+        .setContentTitle("note")
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-    mBuilder.setDefaults(Notification.DEFAULT_ALL).addAction(android.R.drawable.arrow_down_float,"test",getSnoozePendingIntent(time))
+        .addAction(android.R.drawable.arrow_down_float,"test",getSnoozePendingIntent(time))
     val notificationManager = NotificationManagerCompat.from(this)
     notificationManager.notify(time.toInt(),mBuilder.build())
   }
